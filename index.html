@@ -8,10 +8,21 @@
         <script src="vkBridge.js"></script>
 
 <script>
+      <script src="https://unpkg.com/react@15/dist/react.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+
+  <script src="https://unpkg.com/babel-standalone@6/babel.js"></script>
   // Sends event to client
   vkBridge.send('VKWebAppInit');
 </script>
-    <script src="sc.js"> 
+    <script type="text/babel" src="sc.js"> 
+    import bridge from '@vkontakte/vk-bridge';
+
+// Sends event to client
+bridge.send('VKWebAppInit');
+
+// Subscribes to event, sended by client
+bridge.subscribe(e => console.log(e));
     </script>
 
 </head>
